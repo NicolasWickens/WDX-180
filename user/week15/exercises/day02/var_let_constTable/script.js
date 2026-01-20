@@ -9,30 +9,29 @@ document.getElementById("title1").addEventListener("click", function () {
     exampleCode.id = "exampleCode1";
 	exampleCode.className = "exampleCode";
 	exampleCode.style.gridRow = "3 / span 3";
-
     pre = document.createElement("pre");
     code = document.createElement("code");
     code.className = "language-javascript";
     code.textContent = `// example
-		var x = 10;
-		console.log(x); // 10
-		x = 20;
-		console.log(x); // 20
+var x = 10;
+console.log(x); // 10
+x = 20;
+console.log(x); // 20
 
-		// let example
-		let y = 10;
-		console.log(y); // 10
-		y = 20;
-		console.log(y); // 20
+// let example
+let y = 10;
+console.log(y); // 10
+y = 20;
+console.log(y); // 20
 
-		// const example
-		const z = 10;
-		console.log(z); // 10
-		z = 20; // Error: Assignment to constant variable.`;
+// const example
+const z = 10;
+console.log(z); // 10
+z = 20; // Error: Assignment to constant variable.`;
     Prism.highlightElement(code);
     pre.appendChild(code);
     exampleCode.appendChild(pre);
-    container1.insertBefore(exampleCode, children[8]);
+    container1.insertBefore(exampleCode, children[0]);
   } else {
     container1.style.gridTemplateRows = "repeat(7, 100px)";
     document.getElementById("exampleCode1").remove();
@@ -54,30 +53,30 @@ document.getElementById("title2").addEventListener("click", function () {
 	code = document.createElement("code");
 	code.className = "language-javascript";
 	code.textContent = `// example
-	function varTest() {
-	var x = 1;
-	if (true) {
-		var x = 2; // same variable!
-		console.log(x); // 2
-	}
+function varTest() {
+var x = 1;
+if (true) {
+	var x = 2; // same variable!
 	console.log(x); // 2
-	}
-	varTest();
+}
+console.log(x); // 2
+}
+varTest();
 
-	// let example
-	function letTest() {
-	let x = 1;
-	if (true) {
-		let x = 2; // different variable
-		console.log(x); // 2
-	}
-	console.log(x); // 1
-	}
-	letTest();`;
+// let example
+function letTest() {
+let x = 1;
+if (true) {
+	let x = 2; // different variable
+	console.log(x); // 2
+}
+console.log(x); // 1
+}
+letTest();`;
 	Prism.highlightElement(code);
 	pre.appendChild(code);
 	exampleCode.appendChild(pre);
-	container1.insertBefore(exampleCode, children[8]);
+	container1.insertBefore(exampleCode, children[1]);
   }
   else {
 	container1.style.gridTemplateRows = "repeat(7, 100px)";
@@ -100,15 +99,15 @@ document.getElementById("title3").addEventListener("click", function () {
 	code = document.createElement("code");
 	code.className = "language-javascript";
 	code.textContent = `// example
-	function constTest() {
-	const x = 1;
-	if (true) {
-		const x = 2; // different variable
-		console.log(x); // 2
-	}
-	console.log(x); // 1
-	}
-	constTest();`;
+function constTest() {
+const x = 1;
+if (true) {
+	const x = 2; // different variable
+	console.log(x); // 2
+}
+console.log(x); // 1
+}
+constTest();`;
 	Prism.highlightElement(code);
 	pre.appendChild(code);
 	exampleCode.appendChild(pre);
@@ -135,11 +134,11 @@ document.getElementById("title4").addEventListener("click", function () {
 	code = document.createElement("code");
 	code.className = "language-javascript";
 	code.textContent = `// examples
-	const obj = { a: 1, b: 2 };
-	console.log(obj); // { a: 1, b: 2 }
-	obj.a = 10; // Allowed: modifying property
-	console.log(obj); // { a: 10, b: 2 }
-	obj = { a: 3, b: 4 }; // Error: Assignment to constant variable.`;
+const obj = { a: 1, b: 2 };
+console.log(obj); // { a: 1, b: 2 }
+obj.a = 10; // Allowed: modifying property
+console.log(obj); // { a: 10, b: 2 }
+obj = { a: 3, b: 4 }; // Error: Assignment to constant variable.`;
 	Prism.highlightElement(code);
 	pre.appendChild(code);
 	exampleCode.appendChild(pre);
@@ -166,16 +165,16 @@ document.getElementById("title5").addEventListener("click", function () {
 	code = document.createElement("code");
 	code.className = "language-javascript";
 	code.textContent = `// examples
-	// let: block-scoped, cannot be redeclared in the same scope, can be updated.
-	let x = 5;
-	x = 10; // valid
-	// var: function-scoped, can be redeclared and updated.
-	var y = 15;
-	var y = 20; // valid
-	// const: block-scoped, cannot be redeclared or updated; must be initialized at declaration.
-	const z = 25;
-	z = 30; // Error: Assignment to constant variable.
-	`;
+// let: block-scoped, cannot be redeclared in the same scope, can be updated.
+let x = 5;
+x = 10; // valid
+// var: function-scoped, can be redeclared and updated.
+var y = 15;
+var y = 20; // valid
+// const: block-scoped, cannot be redeclared or updated; must be initialized at declaration.
+const z = 25;
+z = 30; // Error: Assignment to constant variable.
+`;
 	Prism.highlightElement(code);
 	pre.appendChild(code);
 	exampleCode.appendChild(pre);
@@ -202,13 +201,13 @@ document.getElementById("title6").addEventListener("click", function () {
 	code = document.createElement("code");
 	code.className = "language-javascript";
 	code.textContent = `// examples
-	console.log(x);
-	let x = 10; // ReferenceError: Cannot access 'x' before initialization
-	console.log(y);
-	const y = 10; // ReferenceError: Cannot access 'y' before initialization
-	console.log(z); // 20
-	var z = 20;
-	`;
+console.log(x);
+let x = 10; // ReferenceError: Cannot access 'x' before initialization
+console.log(y);
+const y = 10; // ReferenceError: Cannot access 'y' before initialization
+console.log(z); // 20
+var z = 20;
+`;
 	Prism.highlightElement(code);
 	pre.appendChild(code);
 	exampleCode.appendChild(pre);
